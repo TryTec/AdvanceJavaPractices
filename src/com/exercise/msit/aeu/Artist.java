@@ -1,29 +1,34 @@
 package com.exercise.msit.aeu;
 
+/**
+ * @author Try
+ *
+ */
+
 public class Artist {
-	private int ID;
-	private String Name;
+	private int id;
+	private String name;
 	
 //	public Artist(int id, String name) {
 //		ID = id;
 //		Name = name;
 //	}
 	
-	public int GetID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
-	public void SetID(int value) {
-		ID = value;
+	public void setId(int value) {
+		id = value;
 	}
 	
-	public String GetName() {
-		return Name;
+	public String getName() {
+		return name;
 	}
-	public void SetName(String value) {
-		Name = value;
+	public void setName(String value) {
+		name = value;
 	}
 	
 	public String toString() {
-		return String.format("ID : %1$s, Name: %2$s", this.GetID(), this.GetName());
+		return String.format("Id : %1$s, Name: %2$s", this.getId(), this.getName());
 	}
 }
