@@ -22,4 +22,8 @@ public class Artist {
 	public void SetName(String value) {
 		Name = value;
 	}
+	
+	public String toString() {
+		return String.format("ID : %1$s, Name: %2$s", this.GetID(), this.GetName());
+	}
 }

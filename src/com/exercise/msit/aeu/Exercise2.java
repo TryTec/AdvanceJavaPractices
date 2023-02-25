@@ -2,21 +2,30 @@ package com.exercise.msit.aeu;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 public class Exercise2 {
 
 	public static void main(String[] args) {		
 		var artistList = GetAllArtist();
 		var trackList = GetAllTrack();
-		var albumList = GetAllAlbum();
-		var albumTrackList = GetAllAlbumTrack();
+		var albumList = GetAllAlbum(artistList, trackList);
 		
-//		artistList.forEach((v) -> System.out.println(String.format("ID : %1$s, Name: %2$s", v.GetID(), v.GetName())));
-//		for (var artist : artistList) {
-//			System.out.println(String.format("ID : %1$s, Name: %2$s", artist.GetID(), artist.GetName()));
-//		}
+		System.out.println("//All Artists");
+		artistList.forEach((v) -> System.out.println(v.toString()));
+		System.out.println("\n//All Tracks");
+		trackList.forEach((v) -> System.out.println(v.toString()));
+		System.out.println("\n//All Albums");
+		albumList.forEach((v) -> System.out.println(v.toString()));
+		System.out.println("//Show Longer Track");
+		Optional<Album> longerTrack = albumList.stream()
+				.reduce((album1, album2) -> album1.getTrackList().size() > album2.getTrackList().size() ? album1 : album2);
+		if (longerTrack.isPresent()) {
+			System.out.println(longerTrack.get().toString());
+		} else {
+			System.out.println("nothing to show!");
+		}
 	}
 	
 	private static List<Artist> GetAllArtist() {
@@ -156,187 +165,135 @@ public class Exercise2 {
 		return trackList;
 	}
 	
-	private static List<Album> GetAllAlbum() {
+	private static List<Album> GetAllAlbum(List<Artist> artist, List<Tracks> tracks) {		
 		Album album1 = new Album();
 		album1.SetID(1);
 		album1.SetName("Album1");
-		album1.SetArtistID(1);
+		album1.setArtist(artist.get(0));
+		album1.getTrackList().add(tracks.get(0));
+		album1.getTrackList().add(tracks.get(1));
 		Album album2 = new Album();
 		album2.SetID(2);
 		album2.SetName("Album2");
-		album2.SetArtistID(1);
+		album2.setArtist(artist.get(0));
+		album1.getTrackList().add(tracks.get(2));
+		album1.getTrackList().add(tracks.get(3));
 		Album album3 = new Album();
 		album3.SetID(3);
 		album3.SetName("Album3");
-		album3.SetArtistID(2);
+		album3.setArtist(artist.get(1));
+		album1.getTrackList().add(tracks.get(4));
+		album1.getTrackList().add(tracks.get(5));
 		Album album4 = new Album();
 		album4.SetID(4);
 		album4.SetName("Album4");
-		album4.SetArtistID(2);
+		album4.setArtist(artist.get(1));
+		album1.getTrackList().add(tracks.get(6));
+		album1.getTrackList().add(tracks.get(7));
 		Album album5 = new Album();
 		album5.SetID(5);
 		album5.SetName("Album5");
-		album5.SetArtistID(3);
+		album5.setArtist(artist.get(2));
+		album1.getTrackList().add(tracks.get(8));
+		album1.getTrackList().add(tracks.get(9));
 		Album album6 = new Album();
 		album6.SetID(6);
 		album6.SetName("Album6");
-		album6.SetArtistID(3);
+		album6.setArtist(artist.get(2));
+		album1.getTrackList().add(tracks.get(10));
+		album1.getTrackList().add(tracks.get(11));
 		Album album7 = new Album();
 		album7.SetID(7);
 		album7.SetName("Album7");
-		album7.SetArtistID(4);
+		album7.setArtist(artist.get(3));
+		album1.getTrackList().add(tracks.get(12));
+		album1.getTrackList().add(tracks.get(13));
 		Album album8 = new Album();
 		album8.SetID(8);
 		album8.SetName("Album8");
-		album8.SetArtistID(4);
+		album8.setArtist(artist.get(3));
+		album1.getTrackList().add(tracks.get(14));
+		album1.getTrackList().add(tracks.get(15));
+		album1.getTrackList().add(tracks.get(16));
+		album1.getTrackList().add(tracks.get(17));
 		Album album9 = new Album();
 		album9.SetID(9);
 		album9.SetName("Album9");
-		album9.SetArtistID(5);
+		album9.setArtist(artist.get(4));
+		album1.getTrackList().add(tracks.get(18));
+		album1.getTrackList().add(tracks.get(19));
 		Album album10 = new Album();
 		album10.SetID(10);
 		album10.SetName("Album10");
-		album10.SetArtistID(5);
+		album10.setArtist(artist.get(4));
+		album1.getTrackList().add(tracks.get(20));
+		album1.getTrackList().add(tracks.get(21));
+		album1.getTrackList().add(tracks.get(22));
 		Album album11 = new Album();
 		album11.SetID(11);
 		album11.SetName("Album11");
-		album11.SetArtistID(6);
+		album11.setArtist(artist.get(5));
+		album1.getTrackList().add(tracks.get(23));
+		album1.getTrackList().add(tracks.get(24));
 		Album album12 = new Album();
 		album12.SetID(12);
 		album12.SetName("Album12");
-		album12.SetArtistID(6);
+		album12.setArtist(artist.get(5));
+		album1.getTrackList().add(tracks.get(25));
+		album1.getTrackList().add(tracks.get(26));
 		Album album13 = new Album();
 		album13.SetID(13);
 		album13.SetName("Album13");
-		album13.SetArtistID(7);
+		album13.setArtist(artist.get(6));
+		album1.getTrackList().add(tracks.get(27));
+		album1.getTrackList().add(tracks.get(28));
 		Album album14 = new Album();
 		album14.SetID(14);
 		album14.SetName("Album14");
-		album14.SetArtistID(7);
+		album14.setArtist(artist.get(6));
+		album1.getTrackList().add(tracks.get(29));
 		Album album15 = new Album();
 		album15.SetID(15);
 		album15.SetName("Album15");
-		album15.SetArtistID(8);
+		album15.setArtist(artist.get(7));
+		album1.getTrackList().add(tracks.get(20));
+		album1.getTrackList().add(tracks.get(21));
+		album1.getTrackList().add(tracks.get(22));
 		Album album16 = new Album();
 		album16.SetID(16);
 		album16.SetName("Album16");
-		album16.SetArtistID(8);
+		album16.setArtist(artist.get(7));
+		album1.getTrackList().add(tracks.get(14));
+		album1.getTrackList().add(tracks.get(15));
+		album1.getTrackList().add(tracks.get(16));
 		Album album17 = new Album();
 		album17.SetID(17);
 		album17.SetName("Album17");
-		album17.SetArtistID(9);
+		album17.setArtist(artist.get(8));
+		album1.getTrackList().add(tracks.get(20));
+		album1.getTrackList().add(tracks.get(21));
 		Album album18 = new Album();
 		album18.SetID(18);
 		album18.SetName("Album18");
-		album18.SetArtistID(9);
+		album18.setArtist(artist.get(8));
+		album1.getTrackList().add(tracks.get(20));
+		album1.getTrackList().add(tracks.get(21));
 		Album album19 = new Album();
 		album19.SetID(19);
 		album19.SetName("Album19");
-		album19.SetArtistID(10);
+		album19.setArtist(artist.get(9));
+		album1.getTrackList().add(tracks.get(4));
+		album1.getTrackList().add(tracks.get(5));
 		Album album20 = new Album();
 		album20.SetID(20);
 		album20.SetName("Album20");
-		album20.SetArtistID(10);
+		album20.setArtist(artist.get(9));
+		album1.getTrackList().add(tracks.get(14));
+		album1.getTrackList().add(tracks.get(15));
 		
 		List<Album> albumList = new ArrayList<Album>(Arrays.asList(album1,album2,album3,album4,album5,album6,album7,album8,album9,album10,album11,album12,album13,album14,album15,album16,album17,album18,album19,album20));
 		
 		return albumList;
-	}
-	
-	private static List<AlbumTracks> GetAllAlbumTrack() {
-		AlbumTracks albumTrack1a = new AlbumTracks();
-		albumTrack1a.SetAlbumID(1);
-		albumTrack1a.SetTrackID(1);
-		AlbumTracks albumTrack1b = new AlbumTracks();
-		albumTrack1b.SetAlbumID(1);
-		albumTrack1b.SetTrackID(2);
-		AlbumTracks albumTrack1c = new AlbumTracks();
-		albumTrack1c.SetAlbumID(1);
-		albumTrack1c.SetTrackID(3);
-		AlbumTracks albumTrack2a = new AlbumTracks();
-		albumTrack2a.SetAlbumID(2);
-		albumTrack2a.SetTrackID(4);
-		AlbumTracks albumTrack2b = new AlbumTracks();
-		albumTrack2b.SetAlbumID(2);
-		albumTrack2b.SetTrackID(5);
-		AlbumTracks albumTrack2c = new AlbumTracks();
-		albumTrack2c.SetAlbumID(2);
-		albumTrack2c.SetTrackID(6);
-		AlbumTracks albumTrack3a = new AlbumTracks();
-		albumTrack3a.SetAlbumID(3);
-		albumTrack3a.SetTrackID(7);
-		AlbumTracks albumTrack3b = new AlbumTracks();
-		albumTrack3b.SetAlbumID(3);
-		albumTrack3b.SetTrackID(8);
-		AlbumTracks albumTrack3c = new AlbumTracks();
-		albumTrack3c.SetAlbumID(9);
-		albumTrack3c.SetTrackID(9);
-		AlbumTracks albumTrack4a = new AlbumTracks();
-		albumTrack4a.SetAlbumID(4);
-		albumTrack4a.SetTrackID(10);
-		AlbumTracks albumTrack4b = new AlbumTracks();
-		albumTrack4b.SetAlbumID(4);
-		albumTrack4b.SetTrackID(11);
-		AlbumTracks albumTrack4c = new AlbumTracks();
-		albumTrack4c.SetAlbumID(4);
-		albumTrack4c.SetTrackID(12);
-		AlbumTracks albumTrack5a = new AlbumTracks();
-		albumTrack5a.SetAlbumID(5);
-		albumTrack5a.SetTrackID(13);
-		AlbumTracks albumTrack5b = new AlbumTracks();
-		albumTrack5b.SetAlbumID(5);
-		albumTrack5b.SetTrackID(14);
-		AlbumTracks albumTrack5c = new AlbumTracks();
-		albumTrack5c.SetAlbumID(5);
-		albumTrack5c.SetTrackID(15);
-		AlbumTracks albumTrack6a = new AlbumTracks();
-		albumTrack6a.SetAlbumID(6);
-		albumTrack6a.SetTrackID(16);
-		AlbumTracks albumTrack6b = new AlbumTracks();
-		albumTrack6b.SetAlbumID(6);
-		albumTrack6b.SetTrackID(17);
-		AlbumTracks albumTrack6c = new AlbumTracks();
-		albumTrack6c.SetAlbumID(6);
-		albumTrack6c.SetTrackID(18);
-		AlbumTracks albumTrack7a = new AlbumTracks();
-		albumTrack7a.SetAlbumID(7);
-		albumTrack7a.SetTrackID(19);
-		AlbumTracks albumTrack7b = new AlbumTracks();
-		albumTrack7b.SetAlbumID(7);
-		albumTrack7b.SetTrackID(20);
-		AlbumTracks albumTrack7c = new AlbumTracks();
-		albumTrack7c.SetAlbumID(7);
-		albumTrack7c.SetTrackID(21);
-		AlbumTracks albumTrack8a = new AlbumTracks();
-		albumTrack8a.SetAlbumID(8);
-		albumTrack8a.SetTrackID(22);
-		AlbumTracks albumTrack8b = new AlbumTracks();
-		albumTrack8b.SetAlbumID(8);
-		albumTrack8b.SetTrackID(23);
-		AlbumTracks albumTrack8c = new AlbumTracks();
-		albumTrack8c.SetAlbumID(8);
-		albumTrack8c.SetTrackID(24);
-		AlbumTracks albumTrack9a = new AlbumTracks();
-		albumTrack9a.SetAlbumID(9);
-		albumTrack9a.SetTrackID(25);
-		AlbumTracks albumTrack9b = new AlbumTracks();
-		albumTrack9b.SetAlbumID(9);
-		albumTrack9b.SetTrackID(26);
-		AlbumTracks albumTrack9c = new AlbumTracks();
-		albumTrack9c.SetAlbumID(9);
-		albumTrack9c.SetTrackID(27);
-		AlbumTracks albumTrack10a = new AlbumTracks();
-		albumTrack10a.SetAlbumID(10);
-		albumTrack10a.SetTrackID(28);
-		AlbumTracks albumTrack10b = new AlbumTracks();
-		albumTrack10b.SetAlbumID(10);
-		albumTrack10b.SetTrackID(29);
-		AlbumTracks albumTrack10c = new AlbumTracks();
-		albumTrack10c.SetAlbumID(10);
-		albumTrack10c.SetTrackID(30);
-		
-		List<AlbumTracks> albumTrackList = new ArrayList<AlbumTracks>(Arrays.asList(albumTrack1a,albumTrack1b,albumTrack1c,albumTrack2a,albumTrack2b,albumTrack2c,albumTrack3a,albumTrack3b,albumTrack3c,albumTrack4a,albumTrack4b,albumTrack4c,albumTrack5a,albumTrack5b,albumTrack5c,albumTrack6a,albumTrack6b,albumTrack6c,albumTrack7a,albumTrack7b,albumTrack7c,albumTrack8a,albumTrack8b,albumTrack8c,albumTrack9a,albumTrack9b,albumTrack9c,albumTrack10a,albumTrack10b,albumTrack10c));
-		
-		return albumTrackList;
-	}
+	}	
+
 }
