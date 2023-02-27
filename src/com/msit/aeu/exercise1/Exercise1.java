@@ -1,4 +1,4 @@
-package com.exercise.msit.aeu;
+package com.msit.aeu.exercise1;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package com.exercise.msit.aeu;
+package com.msit.aeu.exercise2;
 
 /**
  * @author Try
