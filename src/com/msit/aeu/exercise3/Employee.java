@@ -50,7 +50,7 @@ public class Employee extends Person implements ILabelisale {
 	@Override
 	public String getLabel() {
 		// TODO Auto-generated method stub
-		return String.format("Employee List\nFirst name : %1$s, Last name : %2$s, Birthday : %3$s\nSalary : %4$s, Holiday : %5$s, Year : %6$s", 
+		return String.format("First name : %1$s, Last name : %2$s, Birthday : %3$s\nSalary : %4$s, Holiday : %5$s, Year : %6$s", 
 				getFirtName(), getLastName(), getBirthday(), getSalary(), getHoliday(), getYear());
 	}
 }

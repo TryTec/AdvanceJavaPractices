@@ -27,7 +27,7 @@ public class TeamLeader extends Employee implements ILabelisale {
 	@Override
 	public String getLabel() {
 		// TODO Auto-generated method stub
-		return String.format("Team Leader List\nName : %1$s %2$s, Number of Projects : %3$s", 
+		return String.format("Name : %1$s %2$s, Number of Projects : %3$s", 
 				getFirtName().toUpperCase(), getLastName().toUpperCase(),getProjectNum());
 	}
 }

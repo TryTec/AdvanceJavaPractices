@@ -3,6 +3,8 @@
  */
 package com.msit.aeu.exercise3;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -46,7 +48,14 @@ public class Person {
 	/**
 	 * @param birthday the birthday to set
 	 */
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setBirthday(String birthday) {
+		Date birthDate = null;
+		try {
+			birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(birthday);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.birthday = birthDate;
 	}
 }

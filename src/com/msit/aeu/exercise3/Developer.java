@@ -17,7 +17,7 @@ public class Developer extends Employee {
 	@Override
 	public String getLabel() {
 		// TODO Auto-generated method stub
-		return String.format("Developer List\n Name : %1$s %2$s, Comment : %3$s, Salary : %4$s", 
+		return String.format("Name : %1$s %2$s, Comment : %3$s, Salary : %4$s", 
 				getFirtName(),getLastName(),this.comment,getSalary());
 	}
 }
